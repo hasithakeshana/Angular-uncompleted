@@ -2,6 +2,7 @@
 <h1>{{title}}</h1>
 <div class="container">
 
+  <input type = "text" placeholder="What needs to be done" [(ngModel)] = "todoTitle">
 
   <mat-form-field>
     <mat-label>Input & change events</mat-label>
@@ -16,26 +17,22 @@
        min="09:00" max="18:00" required>
        <br>
 
+       <h3>{{nextEvent | date}}</h3>
+
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <div class="input-group-text">
         <input type="checkbox" aria-label="Checkbox for following text input">
       </div>
     </div>
-    <input type="text" class="form-control" aria-label="Text input with checkbox" #newTodo>
-    <button (click)="addTodo(newTodo.value,time.value); newTodo.value=''"type="button" class="btn btn-warning">Warning</button>
+    <input type="text" class="form-control" aria-label="Text input with checkbox" #newTodo >
+    <button (click)="addTodo(newTodo.value,time.value)"type="button" class="btn btn-warning">Warning</button>
   </div>
 
 
 <br>
 
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">First and last name</span>
-    </div>
-    <input type="text" class="form-control">
-    <input type="text" class="form-control">
-  </div>
+
 
   <br>
 
@@ -47,6 +44,7 @@
         <th scope="col">First</th>
         <th scope="col">Last</th>
         <th scope="col">Handle</th>
+        <th scope="col">Handle</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
 
@@ -55,10 +53,11 @@
     <tbody *ngFor="let todo of todos">
       <tr>
         <th scope="row">1</th>
-        <td>{{todo.label}}</td>
-        <td>{{todo.priority}}</td>
-        <td>{{todo.done}}</td>
-        <td><button type="button" class="btn btn-outline-success">Edit</button></td>
+        <td>{{todo.event}}</td>
+        <td>{{todo.edit}}</td>
+        <td>{{todo.date | date}}</td>
+        <td>{{todo.dateAndTime |  date:'shortTime'}}</td>
+        <td><button type="button" (click)="editTodo(todo)" class="btn btn-outline-success">Edit</button></td>
         <td><button type="button" (click)="deleteTodo(todo)" class="btn btn-outline-danger">Delete</button></td>
       </tr>
 

@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule } from '@angular/forms';
+
 //import { MatButtonModule } from '@angular/material/button';
 //import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -112,6 +114,7 @@ import { AppComponent } from './app.component';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
